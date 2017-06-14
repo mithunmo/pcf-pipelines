@@ -100,20 +100,6 @@ network_configuration=$(
               "availability_zones": ($services_availability_zones | split(","))
             }
           ]
-        },
-        {
-          "name": $dynamic_services_network_name,
-          "service_network": true,
-          "subnets": [
-            {
-              "iaas_identifier": $dynamic_services_vcenter_network,
-              "cidr": $dynamic_services_network_cidr,
-              "reserved_ip_ranges": $dynamic_services_reserved_ip_ranges,
-              "dns": $dynamic_services_dns,
-              "gateway": $dynamic_services_gateway,
-              "availability_zones": ($dynamic_services_availability_zones | split(","))
-            }
-          ]
         }
       ]
     }'
