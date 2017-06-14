@@ -162,6 +162,9 @@ jobs:
   - task: configure-director
     file: pcf-pipelines/install-pcf/gcp/tasks/config-director/task.yml
     params:
+      OPS_MGR_HOST: {{opsman_uri}}
+      OPS_MGR_USR: {{pcf_opsman_admin_username}}
+      OPS_MGR_PWD: {{pcf_opsman_admin_password}}
       GCP_PROJECT_ID: {{gcp_project_id}}
       GCP_REGION: {{gcp_region}}
       GCP_ZONE_1: {{gcp_zone_1}}
