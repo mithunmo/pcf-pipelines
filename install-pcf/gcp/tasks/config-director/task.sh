@@ -2,12 +2,12 @@
 
 set -eu
 
-iaas_configuration=$(cat <<-EOF
+iaas_configuration=$(
   echo '{}' |
   jq \
-    --arg $gcp_project "$GCP_PROJECT_ID" \
-    --arg $default_deployment_tag "$GCP_RESOURCE_PREFIX" \
-    --arg $auth_json "$GCP_SERVICE_ACCOUNT_KEY" \
+    --arg gcp_project "$GCP_PROJECT_ID" \
+    --arg default_deployment_tag "$GCP_RESOURCE_PREFIX" \
+    --arg auth_json "$GCP_SERVICE_ACCOUNT_KEY" \
     '. +
     {
       "project": $gcp_project,
