@@ -15,7 +15,6 @@ iaas_configuration=$(
       "auth_json": $auth_json
     }
     '
-EOF
 )
 
 availability_zones="${GCP_ZONE_1},${GCP_ZONE_2},${GCP_ZONE_3}"
@@ -144,15 +143,15 @@ security_configuration=$(
 )
 
 network_assignment=$(
-echo '{}' |
-jq \
-  --arg availability_zones "$availability_zones" \
-  --arg network "infrastructure" \
-  '. +
-  {
-    "singleton_availability_zone": ($availability_zones | split(",") | .[0]),
-    "network": $network
-  }'
+  echo '{}' |
+  jq \
+    --arg availability_zones "$availability_zones" \
+    --arg network "infrastructure" \
+    '. +
+    {
+      "singleton_availability_zone": ($availability_zones | split(",") | .[0]),
+      "network": $network
+    }'
 )
 
 echo "Configuring IaaS and Director..."
