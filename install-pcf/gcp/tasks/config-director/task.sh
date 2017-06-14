@@ -27,7 +27,6 @@ az_configuration=$(
     {
       "availability_zones": ($availability_zones | split(",") | map({name: .}))
     }'
-EOF
 )
 
 network_configuration=$(
