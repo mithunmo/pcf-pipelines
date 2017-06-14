@@ -108,8 +108,8 @@ network_configuration=$(
 director_config=$(cat <<-EOF
 {
   "ntp_servers_string": "0.pool.ntp.org",
-  "resurrector_enabled": "1",
-  "retry_bosh_deploys": "1",
+  "resurrector_enabled": true,
+  "retry_bosh_deploys": true,
   "database_type": "internal",
   "blobstore_type": "local"
 }
