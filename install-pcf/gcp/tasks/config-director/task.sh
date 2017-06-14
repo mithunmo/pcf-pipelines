@@ -116,6 +116,18 @@ director_config=$(cat <<-EOF
 EOF
 )
 
+resource_configuration=$(cat <<-EOF
+{
+  "director": {
+    "internet_connected": false
+  },
+  "compilation": {
+    "internet_connected": false
+  }
+}
+EOF
+)
+
 security_configuration=$(
   echo '{}' |
   jq \
@@ -151,4 +163,5 @@ om-linux \
   --az-configuration "$az_configuration" \
   --networks-configuration "$network_configuration" \
   --network-assignment "$network_assignment" \
-  --security-configuration "$security_configuration"
+  --security-configuration "$security_configuration" \
+  --resource-configuration "$resource_configuration"
